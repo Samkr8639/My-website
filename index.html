@@ -886,7 +886,10 @@
                     <h2>Frontend Angular Developer</h2>
                     <p>Building dynamic, scalable, and user-friendly web applications with Angular.</p>
                     <div class="hero-buttons">
-                        <button class="btn btn-primary" id="download-resume">Download Resume</button>
+                        <a href="./SameerKumarResume.pdf" download="SameerKumarResume.pdf" class="btn btn-primary">
+                            Download Resume
+                        </a>
+
                         <a href="#contact" class="btn btn-outline">Contact Me</a>
                     </div>
                 </div>
@@ -1117,11 +1120,11 @@
             <p>&copy; <span id="year"></span> &nbsp; Sameer Kumar. All Rights Reserved.</p>
         </div>
     </footer>
-   
+
 
     <!-- Toast Notification -->
     <div class="toast" id="toast"></div>
-   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         // Set the current year dynamically
         document.getElementById("year").textContent = new Date().getFullYear();
@@ -1161,6 +1164,8 @@
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1208,231 +1213,6 @@
         window.addEventListener('scroll', animateOnScroll);
         // Initial call to check elements in view on page load
         window.addEventListener('load', animateOnScroll);
-
-        // Download Resume Functionality
-        document.getElementById('download-resume').addEventListener('click', function () {
-            // Create a PDF version of the resume
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            // Set font and size
-            doc.setFontSize(22);
-            doc.setTextColor(37, 99, 235);
-            doc.text('Sameer Kumar', 105, 20, { align: 'center' });
-            
-            doc.setFontSize(16);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Front End Software Engineer | Angular Developer', 105, 30, { align: 'center' });
-            
-            // Add contact information
-            doc.setFontSize(12);
-            doc.text('sameervirak@gmail.com | www.linkedin.com/in/sameer-kumar | Ahmedabad', 105, 40, { align: 'center' });
-            
-            // Add line separator
-            doc.line(20, 45, 190, 45);
-            
-            // Add summary section
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('SUMMARY', 20, 55);
-            
-            doc.setFontSize(11);
-            doc.setTextColor(0, 0, 0);
-            const summaryText = 'With over 2.5 years of experience in front end development, I specialize in building high-performance web applications using Angular and TypeScript. My projects have consistently resulted in improved performance and user satisfaction. I bring a proactive approach to project leadership and technical innovation.';
-            doc.text(summaryText, 20, 65, { maxWidth: 170 });
-            
-            // Add experience section
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('EXPERIENCE', 20, 90);
-            
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Front End Engineer | Zealous System', 20, 100);
-            doc.text('01/2023 - Present | Ahmedabad, India', 20, 106);
-            
-            doc.setFontSize(10);
-            const experiencePoints = [
-                '• Collaborated with design teams to integrate user interfaces into scalable web applications, boosting user satisfaction scores by 20%.',
-                '• Collaborated with cross-functional teams to build and optimize Angular applications, improving user satisfaction scores by 20%.',
-                '• Engineered and deployed a complex Angular web system that increased customer conversion rates by 12%.',
-                '• Enhanced application performance, responsiveness, and accessibility, contributing to a 10% rise in daily active users.',
-                '• Played a key role in evaluating and implementing frontend frameworks and libraries (Angular Material, RxJS, NgRx), streamlining project workflows.',
-                '• Initiated and led a code modularity and reusability strategy, reducing development costs by 15% and accelerating feature delivery.'
-            ];
-            
-            let yPos = 116;
-            experiencePoints.forEach(point => {
-                if (yPos > 250) {
-                    doc.addPage();
-                    yPos = 20;
-                }
-                doc.text(point, 25, yPos, { maxWidth: 160 });
-                yPos += 7;
-            });
-            
-            // Add education section
-            yPos += 10;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('EDUCATION', 20, yPos);
-            
-            yPos += 10;
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0);
-            doc.text('B.Tech in Computer Science | Parul University', 20, yPos);
-            doc.text('06/2019 - 04/2023 | Vadodara, India', 20, yPos + 6);
-            
-            // Add projects section
-            yPos += 16;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('PROJECTS', 20, yPos);
-            
-            yPos += 10;
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Zavvie | Americus, United States | 10/2023 - Present', 20, yPos);
-            
-            doc.setFontSize(10);
-            doc.text('Short summary of your work', 20, yPos + 6);
-            doc.text('• Developed UI with Angular 17, TypeScript, RxJS. Collaborated with designers & backend engineers. Optimized performance for AI-powered real estate financing platform.', 25, yPos + 12, { maxWidth: 160 });
-            
-            // Add key achievements section
-            yPos += 25;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('KEY ACHIEVEMENTS', 20, yPos);
-            
-            yPos += 10;
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Reduced Load Times', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Spearheaded the redesign of a major application, reducing load times by 30%, enhancing customer satisfaction.', 25, yPos + 6, { maxWidth: 160 });
-            
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            doc.setFontSize(12);
-            doc.text('Boosted User Engagement', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Implemented accessible design principles, resulting in a 25% increase in user engagement across devices.', 25, yPos + 6, { maxWidth: 160 });
-            
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            doc.setFontSize(12);
-            doc.text('Enhanced Development Efficiency', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Introduced new development frameworks, increasing team efficiency by 18% and accelerating project delivery.', 25, yPos + 6, { maxWidth: 160 });
-            
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            doc.setFontSize(12);
-            doc.text('Mentorship Excellence', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Successfully mentored over 10 junior developers, significantly improving the team\'s overall skill set and productivity.', 25, yPos + 6, { maxWidth: 160 });
-            
-            // Add skills section
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('SKILLS', 20, yPos);
-            
-            yPos += 10;
-            doc.setFontSize(10);
-            doc.setTextColor(0, 0, 0);
-            doc.text('NextJS · ReactJS · HTML/CSS · JavaScript · TypeScript · .NET/CH', 20, yPos, { maxWidth: 170 });
-            
-            // Add certifications section
-            yPos += 10;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('CERTIFICATION', 20, yPos);
-            
-            yPos += 10;
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Advanced NextJS Development', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Focused on server-side rendering and static generation techniques, provided by Coursera.', 25, yPos + 6, { maxWidth: 160 });
-            
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            doc.setFontSize(12);
-            doc.text('React and Modern JavaScript', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Covers hooks, contexts, and advanced components, offered by Udemy.', 25, yPos + 6, { maxWidth: 160 });
-            
-            // Add interests section
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            
-            doc.setFontSize(14);
-            doc.setTextColor(37, 99, 235);
-            doc.text('INTERESTS', 20, yPos);
-            
-            yPos += 10;
-            doc.setFontSize(12);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Web Application Development', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('Passionate about creating efficient and scalable web applications that enhance user experience.', 25, yPos + 6, { maxWidth: 160 });
-            
-            yPos += 15;
-            if (yPos > 250) {
-                doc.addPage();
-                yPos = 20;
-            }
-            doc.setFontSize(12);
-            doc.text('Mentoring Emerging Developers', 20, yPos);
-            doc.setFontSize(10);
-            doc.text('I find great satisfaction in guiding new developers through the complexities of modern web development.', 25, yPos + 6, { maxWidth: 160 });
-            
-            // Save the PDF
-            doc.save('SameerKumarResume.pdf');
-            
-            showToast('Resume downloaded successfully!');
-        });
 
         // Initialize EmailJS
         (function () {
